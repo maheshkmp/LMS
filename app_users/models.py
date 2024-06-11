@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import os
 
+
 def path_and_rename( instance, filename):
     upload_to = 'Images/'
     ext = filename.split('.')[-1]
