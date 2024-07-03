@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 import os
 
-
 def path_and_rename( instance, filename):
     upload_to = 'Images/'
     ext = filename.split('.')[-1]
@@ -13,7 +12,6 @@ def path_and_rename( instance, filename):
     return os.path.join(upload_to, filename)
 
 # Create your models here.
-
 class user_profile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
