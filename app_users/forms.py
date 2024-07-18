@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
-from app_users.models import userProfileInfo
+from django.contrib.auth.forms import UserCreationForm 
+from app_users.models import UserProfileInfo
 
-class UserForm(UserCreationform):
+class UserForm(UserCreationForm):
     email = forms.EmailField()
 
     class Meta():
@@ -27,7 +28,7 @@ class UserProfileInfoForm(forms.ModelForm):
 user_type = forms.ChoiceField(required=True, choices=user_types)
 
 class Meta():
-    model = userProfileInfo
+    model = UserProfileInfo
     fields = ('bio', 'profile_pic', 'user_type')
 
 

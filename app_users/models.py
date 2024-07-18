@@ -12,7 +12,7 @@ def path_and_rename( instance, filename):
     return os.path.join(upload_to, filename)
 
 # Create your models here.
-class user_profile(models.Model):
+class UserProfileInfo(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
