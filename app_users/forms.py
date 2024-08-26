@@ -1,6 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm 
 from app_users.models import UserProfileInfo
 
 class UserForm(UserCreationForm):
@@ -8,11 +8,15 @@ class UserForm(UserCreationForm):
 
     class Meta():
         model = User
-        fields = ('username', 'first_name', 'last_name', 'mail', 'password')
+        fields = ('username','first_name','last_name', 'email', 'password1', 'password2')
+
+        # widgets = {
+        # "password":"forms.PasswordInput()",
+        # }
 
         labels = {
-            'password1' : 'Password',
-            'password2' : 'Confirm Password'
+        'password1':'Password',
+        'password2':'Confirm Password'
         }
 
 class UserProfileInfoForm(forms.ModelForm):
@@ -24,13 +28,8 @@ class UserProfileInfoForm(forms.ModelForm):
         (student, 'student'),
         (parent, 'parent'),
     ]
-
     user_type = forms.ChoiceField(required=True, choices=user_types)
 
-class Meta():
-    model = UserProfileInfo
-    fields = ('bio', 'profile_pic', 'user_type')
-
-
-
-
+    class Meta():
+        model = UserProfileInfo
+        fields = ('bio', 'profile_pic', 'user_type')
