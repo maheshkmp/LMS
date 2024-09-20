@@ -3,8 +3,7 @@ from django.urls import path
 import app_users
 from django.conf.urls import include  
 
-urlpatterns = [
-    
+urlpatterns = [   
     path('admin/', admin.site.urls),
     path('', include('app_users.urls')),
 ]
