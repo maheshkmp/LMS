@@ -4,6 +4,7 @@ import app_users
 from django.conf.urls import include  
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('', include('app_users.urls')),
 ]
